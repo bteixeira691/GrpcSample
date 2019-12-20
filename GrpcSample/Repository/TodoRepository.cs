@@ -22,13 +22,13 @@ namespace GrpcSample.Repository
                             .Find(_ => true)
                             .ToListAsync();
         }
-        public Task<Todo> GetTodo(Guid id)
+        public async Task<IEnumerable<Todo>> GetTodo(string name)
         {
-            FilterDefinition<Todo> filter = Builders<Todo>.Filter.Eq(m => m.Id, id);
-            return _context
+            FilterDefinition<Todo> filter = Builders<Todo>.Filter.Eq(m => m.Title, name);
+            return await _context
                     .Todos
                     .Find(filter)
-                    .FirstOrDefaultAsync();
+                    .ToListAsync();
         }
         public async Task Create(Todo todo)
         {

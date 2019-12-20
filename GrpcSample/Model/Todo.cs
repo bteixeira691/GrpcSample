@@ -16,9 +16,6 @@ namespace GrpcSample.Model
         public string Content { get; set; }
         public Category category { get; set; }
 
-
-
-
         public enum Category
         {
             general,

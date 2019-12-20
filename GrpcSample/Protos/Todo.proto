@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcSample.Protos";
+
+
+service Todo{
+    rpc GetTodoByName (GetTodoName) returns (GetTodoByNameReply);
+}
+
+
+message GetTodoName {
+ string name=1;
+}
+
+message GetTodoByNameReply {
+ string title =1;
+ string content =2;
+ string category=3;
+}
+
+

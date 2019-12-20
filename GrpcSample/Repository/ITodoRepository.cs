@@ -10,7 +10,7 @@ namespace GrpcSample.Repository
     {
 
         Task<IEnumerable<Todo>> GetAllTodos();
-        Task<Todo> GetTodo(Guid id);
+        Task<IEnumerable<Todo>> GetTodo(string name);
         Task Create(Todo todo);
         Task<bool> Update(Todo todo);
         Task<bool> Delete(Guid id);

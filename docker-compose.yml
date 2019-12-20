@@ -1,22 +1,13 @@
 version: '3.4'
 
 services:
+  grpcsample:
+    image: ${DOCKER_REGISTRY-}grpcsample
+    build:
+      context: .
+      dockerfile: GrpcSample/Dockerfile
   grpcclient:
     image: ${DOCKER_REGISTRY-}grpcclient
     build:
       context: .
       dockerfile: GrpcClient/Dockerfile
-  grpcsample:
-    image: ${DOCKER_REGISTRY-}grpcsample
-    build:
-      context: .
-      dockerfile: GrpcClient/Dockerfile
-
-  mongo:
-    image: mongo
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-    ports:
-      - 27017:27017
