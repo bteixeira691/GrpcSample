@@ -34,20 +34,9 @@ namespace GrpcSample.Repository
         {
             await _context.Todos.InsertOneAsync(todo);
         }
-        public async Task<bool> Update(Todo todo)
+        public async Task<bool> Delete(string name)
         {
-            ReplaceOneResult updateResult =
-                await _context
-                        .Todos
-                        .ReplaceOneAsync(
-                            filter: g => g.Id == todo.Id,
-                            replacement: todo);
-            return updateResult.IsAcknowledged
-                    && updateResult.ModifiedCount > 0;
-        }
-        public async Task<bool> Delete(Guid id)
-        {
-            FilterDefinition<Todo> filter = Builders<Todo>.Filter.Eq(m => m.Id, id);
+            FilterDefinition<Todo> filter = Builders<Todo>.Filter.Eq(m => m.Title, name);
             DeleteResult deleteResult = await _context
                                                 .Todos
                                               .DeleteOneAsync(filter);

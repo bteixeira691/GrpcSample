@@ -12,8 +12,8 @@ namespace GrpcSample.Repository
         Task<IEnumerable<Todo>> GetAllTodos();
         Task<IEnumerable<Todo>> GetTodo(string name);
         Task Create(Todo todo);
-        Task<bool> Update(Todo todo);
-        Task<bool> Delete(Guid id);
+
+        Task<bool> Delete(string name);
 
     }
 }

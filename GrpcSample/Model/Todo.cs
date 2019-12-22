@@ -11,17 +11,10 @@ namespace GrpcSample.Model
     {
         [BsonId]
         public ObjectId InternalId { get; set; }
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public Category category { get; set; }
+        public string Category { get; set; }
 
-        public enum Category
-        {
-            general,
-            shop,
-            medic,
-            sluts
-        }
+       
     }
 }
