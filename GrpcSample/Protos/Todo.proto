@@ -4,9 +4,10 @@ option csharp_namespace = "GrpcSample.Protos";
 
 
 service Todo{
-    rpc GetTodoByName (GetTodoName) returns (stream TodoReturn);
+    rpc GetTodos(VoidRequest) returns (stream TodoReturn);
     rpc CreateTodo(TodoReturn) returns(returnBool);
     rpc DeleteTodo(GetTodoName) returns(returnBool);
+    rpc SingleTodo(GetTodoName) returns(TodoReturn);
 }
 
 
@@ -24,4 +25,6 @@ message returnBool {
  bool bool = 1;
 }
 
+message VoidRequest{
 
+}
