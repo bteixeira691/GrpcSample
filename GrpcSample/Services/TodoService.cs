@@ -64,8 +64,8 @@ namespace GrpcSample.Services
         {
             try
             {
-                await _toporepository.Delete(request.Name).ConfigureAwait(false);
-                var response = new returnBool() { Bool = true };
+                var result = await _toporepository.Delete(request.Name).ConfigureAwait(false);
+                var response = new returnBool() { Bool = result };
                 return await Task.FromResult(response);
             }
             catch (Exception e)
